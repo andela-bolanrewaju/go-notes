@@ -7,14 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<ul>
-  <li><%= link_to 'Home', root_path %></li>
-  <li><%= link_to 'About', about_path %></li>
-  <li><%= link_to 'Help', help_path %></li>
-  <li><%= link_to 'Contact', contact_path %></li>
-  <li><%= link_to 'Signup', signup_path %></li>
-</ul>
-<%= yield %>
-
+  <div class="col-sm-10 main-container">
+    <ul class="nav">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'About', about_path %></li>
+      <li><%= link_to 'Help', help_path %></li>
+      <li><%= link_to 'Contact', contact_path %></li>
+      <li><%= link_to 'Signup', signup_path %></li>
+    </ul>
+    <% flash.each do |msg_type, msg| %>
+      <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+    <% end %>
+    <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
+  </div>
 </body>
 </html>
