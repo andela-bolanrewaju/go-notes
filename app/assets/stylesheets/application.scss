@@ -26,7 +26,7 @@
   float: none;
 }
 
-.container {
+.form-container {
   margin: 20px 0px;
 }
 
@@ -43,6 +43,20 @@ input {
   height: auto !important;
 }
 
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
 #error_explanation {
   color: red;
   ul {
@@ -56,4 +70,10 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+
+//Nav - bootstrap overrite
+.navbar-nav.navbar-right:last-child {
+  margin-right: 0px;
 }
