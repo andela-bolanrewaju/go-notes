@@ -16,21 +16,79 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "static";
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+
+$light_green: rgb(200,220,200);
+$dark_green: rgb(160,180,160);
+$dark_red: rgb(150,50,50);
+$medium_red: rgb(200,80,80);
+$light_red: rgb(240,120,120);
 
 @mixin box_sizing {
   box-sizing: border-box;
 }
 
-.main-container {
-  margin: 0 auto;
-  float: none;
+
+html, body {
+  margin: 0;
+  height: 100%;
+  top: 0;
+  overflow-x: hidden;
+  font-family: "Source Sans Pro";
+  font-weight: 300;
 }
 
-.form-container {
-  margin: 20px 0px;
+.clear-fix {
+  &:before, &:after {
+    content: "";
+    display: table;
+    clear: both
+  }
+}
+
+.main-container {
+  width: calc(100% - 250px);
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+  float: right;
+  overflow-x: auto;
+  overflow-y: hidden; 
+  background-color: $light_green;
+  .top {
+    padding: 10px;
+    background-color: $dark_green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+  .content {
+    margin-top: 95px;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+
+.notes {
+  list-style: none;
+  li {
+    margin: 20px 0px;
+  }
 }
 
 // forms
+
+.form-container {
+  margin: 200px auto 30px;
+  padding: 40px;
+  background-color: rgba(255,255,255,.8);
+  float: none;
+  border-radius: 3px;
+}
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -73,7 +131,112 @@ input {
 }
 
 
+.note-form {
+  padding: 0 10px;
+  input[type='text'], textarea {
+    border-radius: 0;
+    border: none;
+    background-color: $light_red;
+    color: white;
+    &:active, &:focus {
+      border: none;
+      box-shadow: none;
+    }
+    &::-webkit-input-placeholder {
+      color: rgba(250,250,250,.6);
+    }
+  }
+}
+
+
 //Nav - bootstrap overrite
 .navbar-nav.navbar-right:last-child {
   margin-right: 0px;
+}
+
+.nav-tabs > li {
+    margin-left: 10px;
+  > a {
+    background-color: $dark_green;
+    color: rgb(250,255,250);
+    font-size: 1.1em;
+  }
+}
+
+
+/* Sidebar */
+.sidebar {
+  background-color: $medium_red;
+  width: 250px;
+  height: 100%;
+  max-height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  float: left;
+  position: absolute;
+  overflow: auto;
+  display: block;
+  ul {
+    list-style: none;
+    padding: 0;
+    li > a {
+      display: block;
+      overflow: auto;
+      padding: 10px 0;
+      &.active {
+        background-color: $light_green;
+      }
+      &:hover {
+        background-color: $dark_green;
+      }
+      span {
+        display: block;
+        font-size: 1.3em;
+        font-weight: 400;
+        padding: 20px;
+        color: rgb(20,20,20);
+        float: left;
+      }
+    }
+    img {
+      float: left;
+      padding-left: 13px;
+    }
+    li.menu-title, li.logo {
+      color: white;
+      text-align: center;
+      font-size: 1.2em;
+      padding: 10px 0px;
+      background-color: $dark_red;
+    }
+    li.logo {
+      background-color: #666;
+      padding: 0;
+      a, a:hover {
+        background-color: #666;
+      }
+      img {
+        float: none;
+        padding: 0;
+        display: inline;
+      }
+    }
+  }
+}
+
+.tab-pane {
+  background-color: white;
+  padding: 50px 0;
+  h1 {
+    margin: 0;
+  }
+  .gravatar_edit {
+    text-align: center;
+    img {
+      display: block;
+      float: none;
+      margin: 50px auto 20px;
+    }
+  }
 }

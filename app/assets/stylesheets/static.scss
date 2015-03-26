@@ -1,0 +1,202 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*!
+ * Start Bootstrap - Agency Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+ @import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
+ @import url("http://fonts.googleapis.com/css?family=Kaushan+Script");
+ @import url("http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic");
+ @import url("http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700");
+
+ // mixins
+ @mixin backgroundSize($value) {  
+  -webkit-background-size: $value;
+  -moz-background-size: $value;
+  background-size: $value;
+  -o-background-size: $value;
+ }
+
+// Variables
+$btnColor: rgb(255, 89, 58);
+$btnColorHover: rgb(235, 69, 38);
+
+body {
+  overflow-x: hidden;
+  font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+  // background: linear-gradient(left, black, rgb(115, 47, 6), black), rgb(115, 47, 6);
+  background-image: linear-gradient(left, rgb(27, 2, 3), rgba(55, 7, 6, .3) 15%, rgba(50, 0, 0, .3), rgba(50, 0, 0, .3), rgba(22, 2, 0, .8) 100%), url(image-path('header.jpg'));
+  @include backgroundSize(cover);
+}
+.btn-xl {
+  padding: 20px 40px;
+  border-color: $btnColor;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background-color: $btnColor;
+  &:hover, &:focus, &:active, &.active {
+    border-color: $btnColorHover;
+    color: #fff;
+    background-color: $btnColorHover;
+  }
+}
+
+.open .dropdown-toggle.btn-xl {
+  border-color: #f6bf01;
+  color: #fff;
+  background-color: $btnColorHover;
+}
+
+.btn-xl {
+  &:active, &.active {
+    background-image: none;
+  }
+}
+
+.btn-xl {
+  &.disabled, &[disabled] {
+    border-color: $btnColor;
+    background-color: $btnColor;
+  }
+}
+
+
+.btn-xl {
+  &.disabled:hover, &[disabled]:hover {
+    border-color: $btnColor;
+    background-color: $btnColor;
+  }
+}
+
+.btn-xl {
+  &.disabled:focus, &[disabled]:focus {
+    border-color: $btnColor;
+    background-color: $btnColor;
+  }
+}
+
+.btn-xl {
+  &.disabled:active, &[disabled]:active {
+    border-color: $btnColor;
+    background-color: $btnColor;
+  }
+}
+
+.navbar-default {
+  border-color: transparent;
+  background-color: transparent !important;
+  .navbar-brand {
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    color: $btnColor;
+    &:hover, &:focus, &:active, &.active {
+      color: $btnColorHover;
+    }
+  }
+  .navbar-collapse {
+    border-color: rgba(255, 255, 255, 0.02);
+  }
+  .navbar-toggle {
+    border-color: $btnColor;
+    background-color: $btnColor;
+    .icon-bar {
+      background-color: #fff;
+    }
+    &:hover, &:focus {
+      background-color: $btnColor;
+    }
+  }
+  .nav li a {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+    &:hover, &:focus {
+      outline: 0;
+      color: $btnColor;
+    }
+  }
+  .navbar-nav > .active > a {
+    border-radius: 0;
+    color: #fff;
+    background-color: $btnColor;
+    &:hover, &:focus {
+      color: #fff;
+      background-color: $btnColorHover;
+    }
+  }
+}
+
+
+header {
+  text-align: center;
+  color: #fff;
+  background-attachment: scroll;
+  background-image: url(image-path('header.jpg'));
+  background-position: center center;
+  background-repeat: none;
+  @include backgroundSize(cover);
+  .intro-text {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    .intro-lead-in {
+      margin-bottom: 25px;
+      font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 22px;
+      font-style: italic;
+      line-height: 22px;
+    }
+    .intro-heading {
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 50px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  header .intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
+    .intro-lead-in {
+      margin-bottom: 35px;
+      font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 40px;
+      font-style: italic;
+      line-height: 40px;
+    }
+    .intro-heading {
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 75px;
+      font-weight: 700;
+      line-height: 75px;
+    }
+  }
+}
+
+.btn {
+  &:focus, &:active, &.active, &:active:focus {
+    outline: 0;
+  }
+}
+
+.home-logo {
+  padding-top: 10px;
+}
+
+body {
+  webkit-tap-highlight-color: $btnColor;
+}

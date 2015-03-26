@@ -1,10 +1,8 @@
 <% provide(:title, "Help") %>
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-    <h1>Need Help?</h1>
-    <p>If you need help in using Go-Notes here are the faqs related to using Go-Notes</p>
-  </body>
-</html>
+<div class=" col-md-4 row form-container">
+  <% flash.each do |msg_type, msg| %>
+    <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+  <% end %>
+  <h1>Need Help?</h1>
+  <p>If you need help in using Go-Notes here are the faqs related to using Go-Notes</p>
+</div>

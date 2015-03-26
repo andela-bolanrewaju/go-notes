@@ -1,11 +1,8 @@
 <% provide(:title, "Contact") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
-  <body>
-    <h2>Contact us Page</h2>
-    <p>Contact the Go-Notes team @teamGoNotes</p>
-  </body>
-</html>
+<div class=" col-md-4 row form-container">
+  <% flash.each do |msg_type, msg| %>
+    <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+  <% end %>
+  <h2>Contact us Page</h2>
+  <p>Contact the Go-Notes team @teamGoNotes</p>
+</div>

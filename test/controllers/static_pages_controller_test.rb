@@ -6,7 +6,7 @@ class StaticPagesControllerTest < ActionController::TestCase
   end
 
   test "should get home" do
-    get :home
+    get root_path
     assert_response :success
     assert_select "title", "#{@title}"
   end

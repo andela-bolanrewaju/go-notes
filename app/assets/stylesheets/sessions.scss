@@ -1,3 +1,95 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Imports
+@import url("http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two");
+@import url("http://fonts.googleapis.com/css?family=Courgette");
+
+// mixins
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+}
+
+@mixin transform($transform) {
+  transform: $transform;
+  -moz-transform: $transform;
+  -webkit-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+}
+
+@mixin tape($transform) {
+  content: " ";
+  display: block;
+  z-index: 2;
+  width: 50px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  left: 95px;
+  background-color: rgb(250,250,200);
+  border: 1px solid $two_gray;
+  @include box-shadow( 0px 0px 0.4em $one_gray );
+  @include transform( $transform );
+}
+
+// Variables
+$one_gray: rgb(100,100,100);
+$two_gray: rgb(200,200,200);
+$randomNo: random(3)*1n;
+
+#notes {
+  flex: 0 0 270px;
+  width: 270px;
+  max-height: 100%;
+  height: 100%;
+  margin-left: 20px;
+  padding: 15px;
+  background-color: $two_gray;
+  // display: flex;
+  // flex-direction: column;
+  // box-sizing: border-box;
+  position: relative;
+  .title {
+    margin: 0 0 30px 0;
+    font-family: Courgette;
+    flex: 0 0 auto;
+    font-size: 1.5em;
+  }
+  .ul {
+    padding:0;
+    flex: 1 1 auto;
+    z-index: 1;
+    max-height: 100%;
+  }
+  .li {
+    font-family: "Shadows Into Light Two";
+    font-size: 1.3em;
+    min-height: 100px;
+    list-style: none;
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    z-index: 0;
+    margin-bottom: 30px;
+    @include box-shadow( 0px 7px 1em $one_gray );
+    @include transform( rotate(random() * 2deg) );
+    &:nth-child(even) {
+      @include transform( rotate(random() * 2deg));
+      &::before {
+        @include tape( rotate(1deg) );
+      }
+    }
+    &:nth-child(#{$randomNo}-1) {
+      @include transform( rotate(random() - 2 * 1deg) );
+    }
+    &::before {
+      @include tape( rotate(-1deg) );
+    }
+  }
+}

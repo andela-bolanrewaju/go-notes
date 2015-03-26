@@ -1,10 +1,8 @@
 <% provide(:title, "About") %>
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-    <h2>About Page</h2>
-    <p>About Go-Notes</p>
-  </body>
-</html>
+<div class=" col-md-4 row form-container">
+      <% flash.each do |msg_type, msg| %>
+        <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+      <% end %>
+  <h2>About Page</h2>
+  <p>About Go-Notes</p>
+</div>

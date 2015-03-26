@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  category: MyString
+  user_id: 
+
+two:
+  content: MyText
+  category: MyString
+  user_id: 
+
+orange:
+  content: "I just ate an orange!"
+  category: "uncategorized"
+  created_at: <%= 10.minutes.ago %>
+
+tau_manifesto:
+  content: "Check out the @tauday site by @mhartl: http://tauday.com"
+  category: "uncategorized"
+  created_at: <%= 3.years.ago %>
+
+cat_video:
+  content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  category: "uncategorized"
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  content: "Writing a short test"
+  category: "uncategorized"
+  created_at: <%= Time.zone.now %>

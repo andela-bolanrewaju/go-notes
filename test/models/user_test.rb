@@ -68,4 +68,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
 
+  test "notes should be destroyed when user is destroyed" do
+    @user.save
+    @note = @user.notes.create!(content: "test user content", category: "uncategorized")
+    assert_difference 'Note.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

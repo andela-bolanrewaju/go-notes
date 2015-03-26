@@ -7,40 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="col-sm-10 main-container">
-    <div class="container">
-      <nav class="navbar navbar-inverse">
-        <ul class="nav navbar-nav">
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'About', about_path %></li>
-          <li><%= link_to 'Help', help_path %></li>
-          <li><%= link_to 'Contact', contact_path %></li>
-          <li><%= link_to 'Signup', signup_path %></li>
+  <% if logged_in? %>
+    <aside class="sidebar">
+      <ul>
+        <li class="logo"><%= link_to image_tag("go-notes-logo-new.png", alt: "Go-Notes", class: "img-responsive", size: "160"), root_path %></li>
+      </ul>
+      
+        <ul>
+          <li class="menu-title">User Menu</li>
+          <li><%= active_link_to "sticky-note.png", "Notes", notes_path %></li>
+          <li><%= active_link_to "profile-setting.png", "Profile Settings", edit_user_url(current_user) %></li>
+          <li><%= active_link_to "logout.png", "Logout", logout_path, method: :delete %></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-            <li>
-              <a href="#" class="dropdown_toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Dashboard", current_user %></li>
-                <li><%= link_to "Settings", "#" %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Log in", login_path%></li>
-          <% end %>
+        <ul>
+          <li class="menu-title">Write New Note</li>
         </ul>
-      </nav>
+        <%= render 'notes/notesform' %>
+    </aside>
+  <% end %>
+  <section class="main-container fade in">
+    <div class="top">
+      
     </div>
-    <% flash.each do |msg_type, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-#{msg_type}") %>
-    <% end %>
-    <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
-  </div>
+      <%= yield %>
+    <div class="col-md-12"><%= debug(params) if Rails.env.development? %></div>
+  </section>
 </body>
 </html>
