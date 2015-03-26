@@ -1,0 +1,11 @@
+<div class="note-form">
+
+  <%= form_for(:note, url: notes_new_path) do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: "Compose your note...", size:"2x5", class: "form-control" %>
+
+    <%= f.label :category %>
+    <%= f.text_field :category, placeholder: "give it a category...", class: "form-control" %>
+    <%= f.submit "Post Note" , class: "btn btn-primary" %>
+  <% end %>
+</div>

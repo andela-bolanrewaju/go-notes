@@ -1,0 +1,15 @@
+<% if @notes.nil? %>
+  <%= render 'notes/notesform'  %>
+<% else %>
+  <div class="content">
+    <% @notes.group_by(&:category).each do |cat, note| %> 
+      <div id="notes">
+      <% cat = 'uncategorized' if cat.empty? %>
+        <div class="title">#<%= cat %></div>
+          <div class="ul">
+            <%= render note %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
